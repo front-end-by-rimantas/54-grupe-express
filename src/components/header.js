@@ -1,11 +1,21 @@
-export function header() {
+export function header(activeMenuIndex = -1) {
+    const menu = [
+        { href: '/', text: 'Home' },
+        { href: '/about', text: 'About us' },
+        { href: '/users', text: 'Users' },
+    ];
+
+    let menuHTML = '';
+
+    for (let i = 0; i < menu.length; i++) {
+        const link = menu[i];
+        const active = i === activeMenuIndex ? 'active' : '';
+        menuHTML += `<a class="link ${active}" href="${link.href}">${link.text}</a>`;
+    }
+
     return `
-        <header>
-            <img src="#" alt="Logo">
-            <nav>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/users">Users</a>
-            </nav>
+        <header class="main-header">
+            <img class="logo" src="/img/logo.png" alt="Logo">
+            <nav class="main-nav">${menuHTML}</nav>
         </header>`;
 }

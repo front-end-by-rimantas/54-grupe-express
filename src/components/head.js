@@ -13,5 +13,8 @@ export function head(pageName = '') {
             <meta name="apple-mobile-web-app-title" content="Projekto pavadinimas" />
             <link rel="manifest" href="/favicon/site.webmanifest" />
             <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/layout.css">
+            <link rel="stylesheet" href="/css/header.css">
+            <link rel="stylesheet" href="/css/404.css">
         </head>`;
 }

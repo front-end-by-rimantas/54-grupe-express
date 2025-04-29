@@ -1,5 +1,12 @@
+import { pageTitle } from "../components/pageTitle.js";
 import { baseTemplate } from "../templates/baseTemplate.js";
 
 export function pageHome(req, res) {
-    res.send(baseTemplate('', '<h1>Labas rytas, Lietuva!</h1>'));
+    res.send(baseTemplate('', 0, `
+        ${pageTitle('Labas rytas, Lietuva!')}
+        ${pageTitle('Labas rytas, Lietuva!')}
+        ${pageTitle('Labas rytas, Lietuva!')}
+        ${pageTitle('Labas rytas, Lietuva!')}
+        ${pageTitle('Labas rytas, Lietuva!')}
+        ${pageTitle('Labas rytas, Lietuva!')}`));
 }
