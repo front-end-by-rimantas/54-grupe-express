@@ -6,24 +6,34 @@ import { page404 } from './pages/404.js';
 const app = express();
 const port = 3000;
 
+// kodas, kur padeda gauti POST duomenis?????
+
 app.use(express.static('public'));
 
 app.get('/', pageHome);
 app.get('/about', pageAbout);
 app.get('/users/:userId', pageUser);
 
-app.get('/api/add-text/:text', (req, res) => {
-    textList.push(req.params.text.replaceAll('-', ' '));
-    res.send('Labas ir tau');
+app.all('/api', (req, res) => {
+    res.status(404).send('Toks adresas negalimas');
 });
 
-app.get('/api/update-count/:number', (req, res) => {
-    const n = +req.params.number;
+app.post('/api/text', (req, res) => {
+    console.log(req.body);
 
+    // textList.push();
+    res.send('Sukurtas naujas tekstas');
+});
+app.put('/api/text/:index/:text', (req, res) => {
+    textList[req.params.index] = req.params.text.replaceAll('-', ' ');
+    res.send('Tekstas sekmingai atnaujintas');
+});
+
+app.put('/api/update-count/:number', (req, res) => {
+    const n = +req.params.number;
     if (!isNaN(n)) {
         count.value = n;
     }
-
     res.send('Gautas skaicius: ' + n);
 });
 
