@@ -3,6 +3,7 @@ export function header(activeMenuIndex = -1) {
         { href: '/', text: 'Home' },
         { href: '/about', text: 'About us' },
         { href: '/users', text: 'Users' },
+        { href: '/add-text', text: 'Add text' },
     ];
 
     let menuHTML = '';
